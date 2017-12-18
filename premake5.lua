@@ -27,7 +27,7 @@ workspace "GLFWDemo"
         defines { "GLEW_STATIC" }
         files { "glew/*.h", "glew/*.c" }
         includedirs { "." }
-        
+
 project "GLEW"
     kind "StaticLib"
     language "C++"
@@ -106,3 +106,18 @@ project "GLFW"
             "glfw/glx_context.c",
             "glfw/egl_context.c"
         }
+
+project "glfwTest"
+    kind "ConsoleApp"
+    language "C++"
+    defines {"GLEW_STATIC"}
+    files {"glfwTest/**.h","glfwTest/**.cpp"}
+    includedirs {"."}
+    links {"GLFW", "GLEW"}
+	configuration { "windows" }
+        links { "GLEW", "glu32", "opengl32", "winmm" }
+    configuration { "macosx" }
+        defines { "GLFW_INCLUDE_GLCOREARB" }
+        links { "OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreVideo.framework"}
+    configuration { "gmake" }
+        links { "GL", "GLU", "GLEW", "X11", "Xrandr", "Xinerama", "Xcursor", "pthread", "dl" }

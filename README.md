@@ -9,3 +9,7 @@ eg
 
 Here are the steps for Visual Studio 2017:
 - Command line: premake5 vs2017
+
+
+注：
+premake5 git: https://github.com/premake/premake-core
