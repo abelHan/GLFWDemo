@@ -4,7 +4,6 @@
 2. 利用 premake创建工程
 3. 
 
-
 eg
 
 Here are the steps for Visual Studio 2017:
